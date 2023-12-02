@@ -1,0 +1,24 @@
+import datetime
+
+# Example list of datetime objects
+datetime_list = [
+    datetime.datetime(2023, 10, 21, 5, 45),
+    datetime.datetime(2023, 10, 21, 6, 30),
+    datetime.datetime(2023, 10, 21, 5, 15),
+    datetime.datetime(2023, 10, 21, 7, 0),
+]
+
+# Create a dictionary to store datetime objects by hour
+hourly_dict = {}
+
+# Iterate through the datetime objects and organize them by hour
+for dt in datetime_list:
+    hour = dt.strftime("%H")  # Extract the hour as a string
+    if hour in hourly_dict:
+        hourly_dict[hour].append(dt)
+    else:
+        hourly_dict[hour] = [dt]
+
+# Print the organized data
+for hour, events in hourly_dict.items():
+    print(f'Hour {hour}: {events}')
